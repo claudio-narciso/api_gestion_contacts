@@ -76,5 +76,17 @@ class Contact {
     public function setTelephone(string $telephone): void {
         $this->telephone = $telephone;
     }
+
+    public function toArray() {
+        return [
+            'contactId' => $this->contactId,
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'adresse' => $this->adresse,
+            'codePostal' => $this->codePostal,
+            'ville' => $this->ville,
+            'telephone' => $this->telephone
+        ];
+    }
 }
 

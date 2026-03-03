@@ -29,9 +29,7 @@ class ContactDAO {
         $query = 'SELECT * FROM contact';
         $statement = $this->database->pdo()->prepare($query);
         if ($statement->execute()) {
-            return array_map(function ($contact) {
-                return $this->mapToContact($contact);
-            }, $statement->fetchAll(PDO::FETCH_ASSOC));
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
         } else {
             exit();
         }
@@ -42,7 +40,7 @@ class ContactDAO {
         $statement = $this->database->pdo()->prepare($query);
         $statement->bindValue(':contact_id', $contactId);
         if ($statement->execute()) {
-            return $this->mapToContact($statement->fetch(PDO::FETCH_ASSOC));
+            return $statement->fetch(PDO::FETCH_ASSOC);
         } else {
             exit();
         }
@@ -53,9 +51,7 @@ class ContactDAO {
         $statement = $this->database->pdo()->prepare($query);
         $statement->bindValue(':recherche', $recherche);
         if ($statement->execute()) {
-            return array_map(function ($contact) {
-                return $this->mapToContact($contact);
-            }, $statement->fetchAll(PDO::FETCH_ASSOC));
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
         } else {
             exit();
         }

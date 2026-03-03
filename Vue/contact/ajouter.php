@@ -3,6 +3,7 @@
 use R401\TP5\Controleur\Contact\AjouterContact;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'
+    
     && isset($_POST['nom'])
     && isset($_POST['prenom'])
     && isset($_POST['adresse'])
